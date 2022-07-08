@@ -1,0 +1,50 @@
+{
+	"info": {
+		"_postman_id": "6ace4551-bdc1-451f-875d-558b4e97dc9c",
+		"name": "casesTest_CICD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2086450"
+	},
+	"item": [
+		{
+			"name": "test01",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Testing ci/cd MuleSoft\");",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"success\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://mulesoft-cicd-sample-mjz01.us-e2.cloudhub.io/test",
+					"protocol": "http",
+					"host": [
+						"mulesoft-cicd-sample-mjz01",
+						"us-e2",
+						"cloudhub",
+						"io"
+					],
+					"path": [
+						"test"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
